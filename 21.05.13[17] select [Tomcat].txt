@@ -1,0 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ page import = "Bean.WooriDAO" %>
+    <%@ page import = "Bean.WooriBean" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>select</title>
+</head>
+<body>
+	<%
+	String id = request.getParameter("id");
+	String pwd = request.getParameter("password");
+	WooriDAO wdao = new WooriDAO();
+	WooriBean wbean = wdao.readDB(id, pwd);
+	%>
+	<pre>
+		아이디 : <%=wbean.getId() %>
+		이름 : <%=wbean.getName() %>
+		이메일 : <%=wbean.getEmail() %>
+	</pre>
+</body>
+</html>
